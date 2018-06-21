@@ -50,7 +50,8 @@ Comprehensive Project Templates:
 Exercise: 
 
 * Reorganize the Geopandas Tutorial
-   * `git clone https://github.com/valentina-s/mobility-index`
+   * fork  https://github.com/valentina-s/mobility-index
+   * git clone fork_name
    * move all notebooks to a notebook folder
    * create a mobility_index folder which will store all the code.
    * create a tests folder under mobility_index which stores the tests
