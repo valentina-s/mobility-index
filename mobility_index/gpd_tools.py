@@ -1,3 +1,6 @@
+import shapely
+import geopandas as gpd
+
 def pandas2geopandas(df):
     geometries = [shapely.geometry.Point(xy) for xy in zip(df.lng, df.lat)]
     crs = {'init': 'epsg:4326'}
