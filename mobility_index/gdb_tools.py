@@ -1,12 +1,11 @@
 def pandas2geopandas(df):
     # a function to convert a pandas data frame to geopandas data frame
-    geometries = [shapely.geometry.Point(xy) for xy in zip(df.lng, df.lat)]
-    crs = {'init': 'epsg:4326'}
-    gf = gpd.GeoDataFrame(df, crs=crs, geometry=geometries)
+    # ...
+    # returns a geopandas dataframe
     return(gf)
 
 def convex_hull_shape(gf):
-    point_collection = shapely.geometry.MultiPoint(gf.geometry.tolist())
-    polygon = point_collection.convex_hull
-    gfShape = gpd.GeoDataFrame(geometry=[polygon], crs = {'init': 'epsg:4326'})
+    # a function to create the convex hull of a shape
+    # ...
+    # returns geopandas dataframe with the polygon shape
     return(gfShape)
