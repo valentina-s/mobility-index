@@ -1,4 +1,5 @@
-# Tips and Tools for Reproducible Projects with Python
+# Project Organization, Virtualization, and Continuous Integration
+*(Tips and Tools for Reproducible Projects with Python)*
 
 So far you have learnt:
 
