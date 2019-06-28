@@ -220,32 +220,72 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 ---
 
 
-  * move functions from notebooks to a module
-  * paths for modules
-  * reloading modules
-    * python 2:
-    
-    	```
-    		reload(module_name)
-    	```
-    * python 3:
-    
+  * move functions from notebooks to a `.py` file
+  * import the .py as a module
+  
+  ```
+  	import module_name
+	module_name.function()
+  ```
+  
+  ```
+        import module_name as mod 
+	mod.function()
+  ```
+
+  ```   
+        from module_name import myFunction
+        function()
+  ```
+
+  * order of importing modules
+  	* first checks system and Python modules
+	* checks local directory or modules in added system paths
+	
+  * relative imports
+  	```
+	    from ..module import  
+	```
+	
+  * reloading modules (Python 3)   
        ```
-    		from imp import reload
-    		reload(module_name)
+    	    from imp import reload
+            reload(module_name)
        ```
+     
   * install module as a package
   	 * create a [setup.py](https://packaging.python.org/tutorials/distributing-packages/#setup-py) file
   
-    * run the setup.py file
+  * run the setup.py file
   	
   		```
-  			python setup.py install package_name
+  		    python setup.py install package_name
   		```
-  		and you will be able to import the package from anywhere!
-  * submodules 
+    and you will be able to import the package from anywhere!
+    
+  * subpackages
      *	put `__init__.py` in every folder
-  * [git submodules](https://github.com/blog/2104-working-with-submodules) - add external github repos to your github project
+    
+	```
+ 	|
+ 	+-- package
+      		|
+      		+-- __init__.py
+      		|
+      		+-- subpackage
+        	   	|
+           		+-- __init__.py
+           		|
+           		+-- module.py
+	 ``` 
+	 
+	 
+     	```
+	    from subpackage import module
+	```
+     
+  * [git submodules](https://github.com/blog/2104-working-with-submodules) 
+  	- add external github repos to your github project
 
 
 ### Testing
@@ -339,15 +379,6 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 * [JupyterLab](https://) (web based -> can run on server)
 * [Spyder](https://pythonhosted.org/spyder/) Matlab-like IDE
   
-  Linters 
- 
-   * for [PEP8](https://www.python.org/dev/peps/pep-0008/) style
-   * for errors: [pyflakes](https://pypi.python.org/pypi/pyflakes) 
-   * for both: [flake8](http://flake8.pycqa.org/en/latest/)
- 
-
- 
-
 
 ### Documentation
 ---
@@ -360,10 +391,6 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
   * [Jupyter Hub](https://jupyterhub.readthedocs.io/en/latest/) + [Kubernetes](https://kubernetes.io/) - sharing reliably with many people
   * [SageMathCloud - CoCalc](http://blog.sagemath.com/cocalc/2017/05/20/smc-is-now-cocalc.html)
   
-
-  
-
-
 
 ### Extra Resources
 ---
