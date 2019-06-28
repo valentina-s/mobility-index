@@ -269,11 +269,10 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
     
 	```
 	.
- 	+-- package
-      	    |
-      	    +-- __init__.py
-      	    |
-      	    +-- subpackage
+	+-- package   
+	|+-- __init__.py
+	|
+	+-- subpackage
         	|
            	+-- __init__.py
            	|
@@ -305,9 +304,6 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 	|   +-- library.py
 	|   +-- tests
 	|       +-- test_library.py
-	```
-		
-
 	```
 
 	Run the tests:
