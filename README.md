@@ -59,9 +59,9 @@ Exercise:
 
 * Reorganize the Geopandas Tutorial
    * fork  https://github.com/valentina-s/mobility-index
-   * git clone fork_name
+   * git clone fork_address
    * move all notebooks to a notebook folder
-   * create a mobility_index folder which will store all the code.
+   * create a mobility_index folder which will store all the code
    * create a tests folder under mobility_index which stores the tests
 
 
@@ -243,15 +243,16 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 	* checks local directory or modules in added system paths
 	
   * relative imports
-  	```
-	    from ..module import  
-	```
+  
+  ```
+  	from ..module import  
+  ```
 	
   * reloading modules (Python 3)   
-       ```
-    	    from imp import reload
-            reload(module_name)
-       ```
+  ```
+    	from imp import reload
+        reload(module_name)
+  ```
      
   * install module as a package
   	 * create a [setup.py](https://packaging.python.org/tutorials/distributing-packages/#setup-py) file
@@ -261,13 +262,13 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
   ```
   	python setup.py install package_name
   ```
-    and you will be able to import the package from anywhere!
+  and you will be able to import the package from anywhere!
     
   * subpackages
      *	put `__init__.py` in every folder
     
 	```
- 	
+	.
  	+-- package
       	    |
       	    +-- __init__.py
@@ -277,7 +278,7 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
            	+-- __init__.py
            	|
            	+-- module.py
-	 ``` 
+	``` 
 	 
 	 
      	```
@@ -311,8 +312,8 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 
 	Run the tests:
 
-	```bash
-		nosetests
+	```
+	    nosetests
 	```
    In practice, we most probably we will forget to run nosetests after every change we make in the code, luckily, we can do it automatically using continuous integration.
 
