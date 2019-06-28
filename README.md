@@ -56,14 +56,14 @@ Comprehensive Project Templates:
 * [Shablona](https://github.com/uwescience/shablona) - Python Package Template
 
 
-Exercise: 
+**Exercise 1:**
 
-* Reorganize the Geopandas Tutorial
+Reorganize the repo
    * fork  https://github.com/valentina-s/mobility-index
    * git clone fork_address
    * move all notebooks to a notebook folder
    * create a mobility_index folder which will store all the code
-   * create a tests folder under mobility_index which stores the tests
+
 
 
 ### Distributions & Package Managers
@@ -196,7 +196,9 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
  *  friend's laptop
 
 
-
+**Exercise 2:** 
+* create a virtual environment mob_idx with geopandas and shapely
+* start a notebook within it and test the imports
 	
 ### Cross-platform Directory Paths
 ---
@@ -286,6 +288,10 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
   * [git submodules](https://github.com/blog/2104-working-with-submodules) 
   	- add external github repos to your github project
 
+**Exercise 3**
+* Create the functions described in the notebooks.
+* Move them to the mobility_index folder
+
 
 ### Testing
 ---
@@ -329,19 +335,14 @@ In practice, we most probably we will forget to run nosetests after every change
 	
 	[Travis-CI Tutorial](https://docs.travis-ci.com/user/tutorial/)
 
-	Types of tests:
-	
-	* unit testing
-	* integration testing
-	* regression testing
-	* functional testing 
 
 
 	
 	Test Coverage - [Coveralls](https://coveralls.io/)
 
 
-  	Exercise(extra): explore how you can set up automatic coverage check
+  	**Exercise (extra):**
+	explore how you can set up automatic coverage check
   
 
 ### Editors
