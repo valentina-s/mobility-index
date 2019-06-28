@@ -7,7 +7,7 @@ Plan for today:
 * creating modules
 * building packages
 * setting up continuous integration
-* literate programming
+
 
 ### Directory Structure
 ---
@@ -161,6 +161,11 @@ Sometimes you just want to list the ones which you need (and not specify the ver
 	shapely
 ```
 
+You can also use conda to install from a requirements file:
+
+``` 
+	conda install --file requirements.txt
+```
 
 * Make sure to install Jupyter within virtual environment
 
