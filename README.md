@@ -169,6 +169,10 @@ You can also use conda to install from a requirements file:
 
 * Make sure to install Jupyter within virtual environment
 
+Setting up an environment switch within the Jupyter notebook:
+
+https://ipython.readthedocs.io/en/stable/install/kernel_install.html
+
 ### More Virtualization
 ---
  
