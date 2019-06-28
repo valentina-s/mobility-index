@@ -70,7 +70,7 @@ Exercise:
 Conda vs pip
 
 
-What is Conda? 
+What is [Conda](https://docs.conda.io/en/latest/)? 
 
 * Anaconda is a Python distribution slightly different from the default Python distribution, and comes with its own package manager (conda).
 
@@ -108,7 +108,7 @@ What is a Python virtual environment?
 
 A folder with all Python executables and libraries and a link to them. Virtual environments take space!
 
-Pure Python: [virtualenv](https://virtualenv.pypa.io/en/stable/)
+Pure Python: [virtualenv](https://virtualenv.pypa.io/en/stable/), [pipenv](https://docs.pipenv.org/en/latest/)
 
 If using anaconda distribution create envs by:
 
