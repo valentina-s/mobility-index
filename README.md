@@ -260,7 +260,7 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
   * run the setup.py file
   	
   ```
-  	python setup.py install package_name
+  python setup.py install package_name
   ```
   and you will be able to import the package from anywhere!
     
@@ -310,8 +310,8 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 
 	```
 	nosetests
-	```
-   In practice, we most probably we will forget to run nosetests after every change we make in the code, luckily, we can do it automatically using continuous integration.
+	``` 
+In practice, we most probably we will forget to run nosetests after every change we make in the code, luckily, we can do it automatically using continuous integration.
 
 * Remotely:
 	*  [Travis-CI](https://travis-ci.org/) (free for public repos)
