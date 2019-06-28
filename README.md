@@ -258,25 +258,25 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
   
   * run the setup.py file
   	
-  		```
-  		    python setup.py install package_name
-  		```
+  ```
+  	python setup.py install package_name
+  ```
     and you will be able to import the package from anywhere!
     
   * subpackages
      *	put `__init__.py` in every folder
     
 	```
- 	|
+ 	
  	+-- package
-      		|
-      		+-- __init__.py
-      		|
-      		+-- subpackage
-        	   	|
-           		+-- __init__.py
-           		|
-           		+-- module.py
+      	    |
+      	    +-- __init__.py
+      	    |
+      	    +-- subpackage
+        	|
+           	+-- __init__.py
+           	|
+           	+-- module.py
 	 ``` 
 	 
 	 
@@ -294,7 +294,7 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 	* [nose](http://nose.readthedocs.io/en/latest/)
 
 	```
-		pip install nose
+	    conda install nose
 	```
 
 	For each function in library.py write a test function:
@@ -303,35 +303,10 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 	+-- src
 	|   +-- library.py
 	|   +-- tests
-	|       +-- test_function1.py
-	|       +-- test_function2.py
+	|       +-- test_library.py
 	```
-	Use [`numpy.testing`](https://docs.scipy.org/doc/numpy-1.12.0/reference/routines.testing.html) module.
-	
-	Example:
-	
-	`ArraySum.py`:
-	
-	```
-		def ArraySumFunction(array1,array2):
-		   # function which sums two arrays
-			return(array1 + array2)	
-	```
-	
-	
-	`testArraySum.py`:
-	
-	```
-	import numpy as np
-	from numpy import testing as npt
-	import ArraySum
+		
 
-	def test_ArraySumFunction():
-		# testing ArraySum function
-		array1 = 2*np.ones(100)
-    	array2 = np.ones(100)
-    	res = ArraySum.ArraySumFunction(array1,array2)
-    	npt.assert_equal(res, 3*np.ones(100))
 	```
 
 	Run the tests:
@@ -355,6 +330,8 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 	* log in to Travis-CI with your github account
 	* search for the repository you want to activate with travis and switch it on
 	* write a `.travis.yml` specifying the build requirements and tests
+	
+	[Travis-CI Tutorial](https://docs.travis-ci.com/user/tutorial/)
 
 	Types of tests:
 	
