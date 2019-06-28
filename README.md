@@ -199,6 +199,8 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 **Exercise 2:** 
 * create a virtual environment mob_idx with geopandas and shapely
 * start a notebook within it and test the imports
+* deactivate the enviornment
+* export the package list
 	
 ### Cross-platform Directory Paths
 ---
