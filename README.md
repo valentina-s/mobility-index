@@ -1,13 +1,22 @@
-# Tips and Tools for Reproducible Projects with Python
+# Project Organization, Virtualization, and Continuous Integration
+*(Tips and Tools for Reproducible Projects with Python)*
 
-Plan for today:
+So far you have learnt:
 
-* project organization
+* how to analyze complex geospatial datasets
+* how to write readable code
+* how to write testable code
+* how to write version-controlled code
+
+
+Plan for today is to discuss:
+
+* organizing project repositories
 * using virtual environments
 * creating modules
 * building packages
-* setting up continuous integration
-* literate programming
+* setting up automatic testing
+
 
 ### Directory Structure
 ---
@@ -47,14 +56,14 @@ Comprehensive Project Templates:
 * [Shablona](https://github.com/uwescience/shablona) - Python Package Template
 
 
-Exercise: 
+**Exercise 1:**
 
-* Reorganize the Geopandas Tutorial
+Reorganize the repo
    * fork  https://github.com/valentina-s/mobility-index
-   * git clone fork_name
+   * git clone fork_address
    * move all notebooks to a notebook folder
-   * create a mobility_index folder which will store all the code.
-   * create a tests folder under mobility_index which stores the tests
+   * create a mobility_index folder which will store all the code
+
 
 
 ### Distributions & Package Managers
@@ -62,7 +71,7 @@ Exercise:
 Conda vs pip
 
 
-What is Conda? 
+What is [Conda](https://docs.conda.io/en/latest/)? 
 
 * Anaconda is a Python distribution slightly different from the default Python distribution, and comes with its own package manager (conda).
 
@@ -85,9 +94,9 @@ conda list
 
 There are also additional conda packages on [conda-forge](https://conda-forge.org/). You can install them by 
 
-``
+```
 conda install -c conda-forge package_name 
-``
+```
 
 and you can build your own.
 
@@ -100,18 +109,20 @@ What is a Python virtual environment?
 
 A folder with all Python executables and libraries and a link to them. Virtual environments take space!
 
-Pure Python: [virtualenv](https://virtualenv.pypa.io/en/stable/)
+Pure Python: [virtualenv](https://virtualenv.pypa.io/en/stable/), [pipenv](https://docs.pipenv.org/en/latest/)
 
-If using anaconda distribution create envs by:
+Anaconda Python: [conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) 
+
+Create conda envs by:
 
 ```
-	conda create --name newEnv python=2 extra_packages
+conda create --name newEnv python=2 extra_packages
 ```
 
 View environments:
 
 ```
-	conda env list
+conda env list
 ```
 
 On Unix:
@@ -135,34 +146,46 @@ deactivate
 Saving environments:
 
 ```
-	conda env export -f exported_env.yml
+conda env export -f exported_env.yml
 ```
 
 Load an environment from .yml file:
 
 ```
-	conda env create -f exported_env.yml
+conda env create -f exported_env.yml
 ```
 
 
 You can do the same thing with pip:
 
 ```
-	pip freeze > requirements.txt
-	pip install -r requirements.txt
+pip freeze > requirements.txt
+pip install -r requirements.txt
 ```
 
-We can see that the list of packages is pretty long (because of the dependencies, and quite specific). 
+We can see that the list of packages is pretty long (because of the dependencies), and quite specific. 
 
 Sometimes you just want to list the ones which you need (and not specify the version). You can write create the following `requirements.txt` file:
 
 ```
-	geopandas
-	shapely
+geopandas
+shapely
 ```
 
+You can also use conda to install from a requirements file:
+
+``` 
+conda install --file requirements.txt
+```
+
+Jupyter Notebooks and virtual environments:
 
 * Make sure to install Jupyter within virtual environment
+* Run `jupyter notebook` within the activated environment
+
+Setting up an environment switch within the Jupyter notebook:
+
+https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 
 ### More Virtualization
 ---
@@ -173,7 +196,11 @@ Sometimes you just want to list the ones which you need (and not specify the ver
  *  friend's laptop
 
 
-
+**Exercise 2:** 
+* create a virtual environment mob_idx with geopandas and shapely
+* start a notebook within it and test the imports
+* deactivate the enviornment
+* export the package list
 	
 ### Cross-platform Directory Paths
 ---
@@ -198,32 +225,75 @@ Sometimes you just want to list the ones which you need (and not specify the ver
 ---
 
 
-  * move functions from notebooks to a module
-  * paths for modules
-  * reloading modules
-    * python 2:
-    
-    	```
-    		reload(module_name)
-    	```
-    * python 3:
-    
-       ```
-    		from imp import reload
-    		reload(module_name)
-       ```
+  * move functions from notebooks to a `.py` file
+  * import the `.py` file as a module
+  
+  ```
+  import module_name
+  module_name.function()
+  ```
+  
+  ```
+  import module_name as mod 
+  mod.function()
+  ```
+
+  ```   
+  from module_name import myFunction
+  function()
+  ```
+
+  * order of importing modules
+  	* first checks system and Python modules
+	* checks local directory or modules in added system paths
+	
+	
+  * reloading modules (Python 3)   
+  ```
+  from imp import reload
+  reload(module_name)
+  ```
+     
   * install module as a package
   	 * create a [setup.py](https://packaging.python.org/tutorials/distributing-packages/#setup-py) file
   
-    * run the setup.py file
+  * run the setup.py file
   	
-  		```
-  			python setup.py install package_name
-  		```
-  		and you will be able to import the package from anywhere!
-  * submodules 
+  ```
+  python setup.py install package_name
+  ```
+  and you will be able to import the package from anywhere!
+    
+  * subpackages
      *	put `__init__.py` in every folder
-  * [git submodules](https://github.com/blog/2104-working-with-submodules) - add external github repos to your github project
+    
+     ```
+     .
+     +-- package   
+     |   +-- __init__.py
+     |   +-- subpackage
+     |   |   +-- __init__.py
+     |   |   +-- module.py
+     
+     ``` 
+
+	 
+     ```
+     from subpackage import module
+     ```
+  * relative imports
+
+  ```
+  from ..subpackage import  module
+  ```
+     
+  * [git submodules](https://github.com/blog/2104-working-with-submodules) 
+  	- add external github repos to your github project
+
+**Exercise 3**
+* Create the functions described in the notebooks
+* Move them to the mobility_index folder
+* Test importing them from the notebook
 
 
 ### Testing
@@ -232,7 +302,7 @@ Sometimes you just want to list the ones which you need (and not specify the ver
 	* [nose](http://nose.readthedocs.io/en/latest/)
 
 	```
-		pip install nose
+	conda install nose
 	```
 
 	For each function in library.py write a test function:
@@ -241,43 +311,15 @@ Sometimes you just want to list the ones which you need (and not specify the ver
 	+-- src
 	|   +-- library.py
 	|   +-- tests
-	|       +-- test_function1.py
-	|       +-- test_function2.py
-	```
-	Use [`numpy.testing`](https://docs.scipy.org/doc/numpy-1.12.0/reference/routines.testing.html) module.
-	
-	Example:
-	
-	`ArraySum.py`:
-	
-	```
-		def ArraySumFunction(array1,array2):
-		   # function which sums two arrays
-			return(array1 + array2)	
-	```
-	
-	
-	`testArraySum.py`:
-	
-	```
-	import numpy as np
-	from numpy import testing as npt
-	import ArraySum
-
-	def test_ArraySumFunction():
-		# testing ArraySum function
-		array1 = 2*np.ones(100)
-    	array2 = np.ones(100)
-    	res = ArraySum.ArraySumFunction(array1,array2)
-    	npt.assert_equal(res, 3*np.ones(100))
+	|       +-- test_library.py
 	```
 
 	Run the tests:
 
-	```bash
-		nosetests
 	```
-   In practice, we most probably we will forget to run nosetests after every change we make in the code, luckily, we can do it automatically using continuous integration.
+	nosetests
+	``` 
+In practice, we most probably we will forget to run nosetests after every change we make in the code, luckily, we can do it automatically using continuous integration.
 
 * Remotely:
 	*  [Travis-CI](https://travis-ci.org/) (free for public repos)
@@ -293,20 +335,17 @@ Sometimes you just want to list the ones which you need (and not specify the ver
 	* log in to Travis-CI with your github account
 	* search for the repository you want to activate with travis and switch it on
 	* write a `.travis.yml` specifying the build requirements and tests
-
-	Types of tests:
 	
-	* unit testing
-	* integration testing
-	* regression testing
-	* functional testing 
+	[Travis-CI Tutorial](https://docs.travis-ci.com/user/tutorial/)
+
 
 
 	
 	Test Coverage - [Coveralls](https://coveralls.io/)
 
 
-  	Exercise(extra): explore how you can set up automatic coverage check
+  	**Exercise (extra):**
+	explore how you can set up automatic coverage check
   
 
 ### Editors
@@ -317,15 +356,6 @@ Sometimes you just want to list the ones which you need (and not specify the ver
 * [JupyterLab](https://) (web based -> can run on server)
 * [Spyder](https://pythonhosted.org/spyder/) Matlab-like IDE
   
-  Linters 
- 
-   * for [PEP8](https://www.python.org/dev/peps/pep-0008/) style
-   * for errors: [pyflakes](https://pypi.python.org/pypi/pyflakes) 
-   * for both: [flake8](http://flake8.pycqa.org/en/latest/)
- 
-
- 
-
 
 ### Documentation
 ---
@@ -339,15 +369,15 @@ Sometimes you just want to list the ones which you need (and not specify the ver
   * [SageMathCloud - CoCalc](http://blog.sagemath.com/cocalc/2017/05/20/smc-is-now-cocalc.html)
   
 
-  
-
-
-
 ### Extra Resources
 ---
 
 [Hitchhikers Guide for packaging](https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/)
 
+
+### Survey
+---
+[Survey](https://tinyurl.com/2019ProjectOrgEtc)
 
 
 
