@@ -221,7 +221,7 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 
 
   * move functions from notebooks to a `.py` file
-  * import the .py as a module
+  * import the `.py` file as a module
   
   ```
   import module_name
@@ -242,11 +242,6 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
   	* first checks system and Python modules
 	* checks local directory or modules in added system paths
 	
-  * relative imports
-  
-  ```
-  from ..module import  
-  ```
 	
   * reloading modules (Python 3)   
   ```
@@ -267,22 +262,25 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
   * subpackages
      *	put `__init__.py` in every folder
     
-	```
-	.
-	+-- package   
-	|+-- __init__.py
-	|
-	+-- subpackage
-        	|
-           	+-- __init__.py
-           	|
-           	+-- module.py
-	``` 
+     ```
+     .
+     +-- package   
+     |   +-- __init__.py
+     |   +-- subpackage
+     |   |   +-- __init__.py
+     |   |   +-- module.py
+     
+     ``` 
+
 	 
-	 
-     	```
-	    from subpackage import module
-	```
+     ```
+     from subpackage import module
+     ```
+  * relative imports
+
+  ```
+  from ..subpackage import  module
+  ```
      
   * [git submodules](https://github.com/blog/2104-working-with-submodules) 
   	- add external github repos to your github project
