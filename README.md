@@ -291,8 +291,9 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
   	- add external github repos to your github project
 
 **Exercise 3**
-* Create the functions described in the notebooks.
+* Create the functions described in the notebooks
 * Move them to the mobility_index folder
+* Test importing them from the notebook
 
 
 ### Testing
