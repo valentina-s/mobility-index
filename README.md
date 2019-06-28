@@ -1,12 +1,20 @@
 # Tips and Tools for Reproducible Projects with Python
 
-Plan for today:
+So far you have learnt:
 
-* project organization
+* how to analyze complex geospatial datasets
+* how to write readable code
+* how to write testable code
+* how to write version-controlled code
+
+
+Plan for today is to discuss:
+
+* organizing project repositories
 * using virtual environments
 * creating modules
 * building packages
-* setting up continuous integration
+* setting up automatic testing
 
 
 ### Directory Structure
