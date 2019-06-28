@@ -110,7 +110,9 @@ A folder with all Python executables and libraries and a link to them. Virtual e
 
 Pure Python: [virtualenv](https://virtualenv.pypa.io/en/stable/), [pipenv](https://docs.pipenv.org/en/latest/)
 
-If using anaconda distribution create envs by:
+Anaconda Python: [conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) 
+
+Create conda envs by:
 
 ```
 	conda create --name newEnv python=2 extra_packages
@@ -160,7 +162,7 @@ You can do the same thing with pip:
 	pip install -r requirements.txt
 ```
 
-We can see that the list of packages is pretty long (because of the dependencies, and quite specific). 
+We can see that the list of packages is pretty long (because of the dependencies), and quite specific. 
 
 Sometimes you just want to list the ones which you need (and not specify the version). You can write create the following `requirements.txt` file:
 
@@ -175,7 +177,10 @@ You can also use conda to install from a requirements file:
 	conda install --file requirements.txt
 ```
 
+Jupyter Notebooks and virtual environments:
+
 * Make sure to install Jupyter within virtual environment
+* Run `jupyter notebook` within the activated environment
 
 Setting up an environment switch within the Jupyter notebook:
 
