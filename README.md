@@ -93,9 +93,9 @@ conda list
 
 There are also additional conda packages on [conda-forge](https://conda-forge.org/). You can install them by 
 
-``
+```
 conda install -c conda-forge package_name 
-``
+```
 
 and you can build your own.
 
@@ -115,13 +115,13 @@ Anaconda Python: [conda environment](https://docs.conda.io/projects/conda/en/lat
 Create conda envs by:
 
 ```
-	conda create --name newEnv python=2 extra_packages
+conda create --name newEnv python=2 extra_packages
 ```
 
 View environments:
 
 ```
-	conda env list
+conda env list
 ```
 
 On Unix:
@@ -145,21 +145,21 @@ deactivate
 Saving environments:
 
 ```
-	conda env export -f exported_env.yml
+conda env export -f exported_env.yml
 ```
 
 Load an environment from .yml file:
 
 ```
-	conda env create -f exported_env.yml
+conda env create -f exported_env.yml
 ```
 
 
 You can do the same thing with pip:
 
 ```
-	pip freeze > requirements.txt
-	pip install -r requirements.txt
+pip freeze > requirements.txt
+pip install -r requirements.txt
 ```
 
 We can see that the list of packages is pretty long (because of the dependencies), and quite specific. 
@@ -167,14 +167,14 @@ We can see that the list of packages is pretty long (because of the dependencies
 Sometimes you just want to list the ones which you need (and not specify the version). You can write create the following `requirements.txt` file:
 
 ```
-	geopandas
-	shapely
+geopandas
+shapely
 ```
 
 You can also use conda to install from a requirements file:
 
 ``` 
-	conda install --file requirements.txt
+conda install --file requirements.txt
 ```
 
 Jupyter Notebooks and virtual environments:
@@ -224,18 +224,18 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
   * import the .py as a module
   
   ```
-  	import module_name
-	module_name.function()
+  import module_name
+  module_name.function()
   ```
   
   ```
-        import module_name as mod 
-	mod.function()
+  import module_name as mod 
+  mod.function()
   ```
 
   ```   
-        from module_name import myFunction
-        function()
+  from module_name import myFunction
+  function()
   ```
 
   * order of importing modules
@@ -245,13 +245,13 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
   * relative imports
   
   ```
-  	from ..module import  
+  from ..module import  
   ```
 	
   * reloading modules (Python 3)   
   ```
-    	from imp import reload
-        reload(module_name)
+  from imp import reload
+  reload(module_name)
   ```
      
   * install module as a package
@@ -295,7 +295,7 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 	* [nose](http://nose.readthedocs.io/en/latest/)
 
 	```
-	    conda install nose
+	conda install nose
 	```
 
 	For each function in library.py write a test function:
@@ -313,7 +313,7 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 	Run the tests:
 
 	```
-	    nosetests
+	nosetests
 	```
    In practice, we most probably we will forget to run nosetests after every change we make in the code, luckily, we can do it automatically using continuous integration.
 
