@@ -375,6 +375,9 @@ https://ipython.readthedocs.io/en/stable/install/kernel_install.html
 [Hitchhikers Guide for packaging](https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/)
 
 
+### Survey
+---
+[Survey](https://tinyurl.com/2019ProjectOrgEtc)
 
 
 
